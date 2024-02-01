@@ -1,11 +1,14 @@
-const express = require("express");
-const app = express();
-const port = process.env.PORT || 3000;
+// app.js
+const { excelFilePath, ExcelReader } = require("./components/ExcelConfig");
+const { displayPartners } = require("./components/ExcelDisplay");
 
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
-});
+async function runApp() {
+  try {
+    const data = await ExcelReader.readExcel(excelFilePath);
+    displayPartners(data);
+  } catch (error) {
+    console.error("Error reading Excel file:", error.message);
+  }
+}
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+runApp();
