@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "server": "json-server -p 3001 --watch db.json"
+    "server": "json-server -p 3001 --watch ./DataBase/db.json"
   },
   "keywords": [],
   "author": "",
