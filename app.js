@@ -10,6 +10,7 @@ const {
   displayTenants,
 } = require("./src/service/excel/ExcelDisplay");
 const { getAllTenantsData, getOpenStatusData } = require("./src/API/apiData");
+const { updateExcelFile } = require("./src/service/excel/ExcelUpdate");
 
 async function runApp() {
   try {
@@ -19,6 +20,8 @@ async function runApp() {
 
     const openStatus = await getOpenStatusData();
     console.log("open status data :", openStatus);
+
+    // updateExcelFile(openStatus);
 
     const partnerData = await ExcelReader.readPartnerTPT(partnerExcelPath);
     // displayPartners(partnerData);
