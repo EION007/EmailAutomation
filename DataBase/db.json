@@ -6,11 +6,11 @@
       "cloud_full_req": "1001059611",
       "tenant_id": "1230742786",
       "entitlement_set": "3308353946",
-      "service_start_date": "03-02-2024",
+      "service_start_date": "09-02-2024",
       "license_code": "0206660464",
       "license_desc": "Bryant Ranch Prepack",
       "partner_name": "Quatz",
-      "status": "open",
+      "status": "inprogress",
       "fr_request": "9437380481"
     },
     {
@@ -19,11 +19,11 @@
       "cloud_full_req": "4911710772",
       "tenant_id": "4502133329",
       "entitlement_set": "8907028877",
-      "service_start_date": "03-02-2024",
+      "service_start_date": "09-02-2024",
       "license_code": "2593029005",
       "license_desc": "Acme United Corporation",
       "partner_name": "Browseblab",
-      "status": "open",
+      "status": "inprogress",
       "fr_request": "3683930144"
     },
     {
@@ -32,11 +32,11 @@
       "cloud_full_req": "4440523994",
       "tenant_id": "7993787963",
       "entitlement_set": "1403942307",
-      "service_start_date": "05-02-2024",
+      "service_start_date": "09-02-2024",
       "license_code": "9077126856",
       "license_desc": "Family Dollar",
       "partner_name": "Twiyo",
-      "status": "open",
+      "status": "inprogress",
       "fr_request": "9360863831"
     },
     {

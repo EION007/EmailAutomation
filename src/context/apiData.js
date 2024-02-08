@@ -13,7 +13,7 @@ const getAllTenantsData = async () => {
 
 const getOpenStatusData = async () => {
   try {
-    const response = await axios.get(`${REST_API_BASE_URL}?status=open`);
+    const response = await axios.get(`${REST_API_BASE_URL}?status=inprogress`);
 
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -26,7 +26,9 @@ const getOpenStatusData = async () => {
         );
         startDate.setHours(0, 0, 0, 0);
 
-        return status === "open" && startDate.getTime() === tomorrow.getTime();
+        return (
+          status === "inprogress" && startDate.getTime() === tomorrow.getTime()
+        );
       }
     );
 
