@@ -11,20 +11,18 @@ const sendEmail = async data => {
       pass: "qekg hqlt bcdq upck",
     },
   });
-  // console.log(data);
   // const transporter = nodemailer.createTransport({
   //   host: "smtp.ethereal.email",
   //   port: 587,
   //   auth: {
-  //     user: "maximo35@ethereal.email",
-  //     pass: "NV6Pev2y5WTnSxZVAv",
+  //     user: "name.funk@ethereal.email",
+  //     pass: "SARJfHqr8dhFvmbE8q",
   //   },
   // });
 
-  // Construct HTML table using provided data
   let htmlContent = `
-    <h2>Data Table</h2>
-    <style>
+  <h2>Data Tables</h2>
+  <style>
     table {
       border-collapse: collapse;
       width: 100%;
@@ -36,13 +34,18 @@ const sendEmail = async data => {
     }
     th {
       background-color: #f2f2f2;
-    }</style>
-    <h6>Attention: PLEASE DO NOT REPLY TO THIS EMAIL</h6>
-    <p> Dear SAP Solution Extension Partner,</p>
-    <p>Please confirm delivery via SAP Resource of the following cloud fulfillment request</p>
+    }
+  </style>
+  <h4>Attention: PLEASE DO NOT REPLY TO THIS EMAIL</h4>
+  <p>Dear SAP Solution Extension Partner,</p>
+  <p>Please confirm delivery via SAP Resource of the following cloud fulfillment requests:</p>
+`;
+
+  // Iterate through the data and create a table for each row
+  data.forEach(item => {
+    htmlContent += `
     <table border="1">
       <tr>
-        <th>ID</th>
         <th>Customer Name</th>
         <th>Cloud Full Req</th>
         <th>Tenant ID</th>
@@ -51,29 +54,26 @@ const sendEmail = async data => {
         <th>License Code</th>
         <th>License Description</th>
         <th>Partner Name</th>
-        <th>Status</th>
-        <th>FR Request</th>
       </tr>
-  `;
-  // Append each data item as a row in the table
-  data.forEach(item => {
-    htmlContent += `
-    <tr>
-      <td>${item.id}</td>
-      <td>${item.customer_name}</td>
-      <td>${item.cloud_full_req}</td>
-      <td>${item.tenant_id}</td>
-      <td>${item.entitlement_set}</td>
-      <td>${item.service_start_date}</td>
-      <td>${item.license_code}</td>
-      <td>${item.license_desc}</td>
-      <td>${item.partner_name}</td>
-      <td>${item.status}</td>
-      <td>${item.fr_request}</td>
-    </tr>
+      <tr>
+        <td>${item.customer_name}</td>
+        <td>${item.cloud_full_req}</td>
+        <td>${item.tenant_id}</td>
+        <td>${item.entitlement_set}</td>
+        <td>${item.service_start_date}</td>
+        <td>${item.license_code}</td>
+        <td>${item.license_desc}</td>
+        <td>${item.partner_name}</td>
+      </tr>
+    </table>
+    <br>
   `;
   });
-  htmlContent += `</table>`;
+
+  htmlContent += ` <p>Please contact your SAP alliance team in case of question</p>
+  <p><strong>Best regards</strong><br>
+  <strong>Central Monitoring Team - SK</strong></p>`;
+
   const frNo = 280980712;
   let info = await transporter.sendMail({
     from: "Rolvin  <rolvinjm@gmail.com>",
@@ -81,6 +81,7 @@ const sendEmail = async data => {
     subject: `Notice: Unconfirmed Cloud Fulfillment Request ${frNo}`,
     html: htmlContent,
   });
+
   return info;
 };
 
