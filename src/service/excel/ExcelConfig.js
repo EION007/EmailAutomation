@@ -13,8 +13,14 @@ const tenantExcelPath = path.join(
   "../../../public/Data/tracker.xlsx"
 );
 
+const analyzeDataPath = path.join(
+  __dirname,
+  "../../../public/Data/AnalyseData.xlsx"
+);
+
 module.exports = {
   partnerExcelPath,
   tenantExcelPath,
   ExcelReader,
+  analyzeDataPath,
 };
